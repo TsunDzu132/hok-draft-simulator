@@ -379,7 +379,7 @@ button:disabled{opacity:.35;cursor:not-allowed;}
     <div class="topbar-app">
       <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <span class="topbar-title" id="pageTitle">Home</span>
-      <span id="liveStatusBadge" style="margin-left:auto;font-size:11px;color:var(--text2,#8888a8);white-space:nowrap;">Memuat data online...</span>
+      <span id="liveStatusBadge" onclick="loadRemoteData(false)" style="margin-left:auto;font-size:11px;color:var(--text2,#8888a8);white-space:nowrap;cursor:pointer;" title="Klik untuk cek data terbaru">Memuat data online...</span>
     </div>
     <div class="content">
 
@@ -2898,10 +2898,18 @@ async function loadRemoteData(isBackgroundRefresh){
 }
 
 // ============================================================
+// PERINGATAN SEBELUM REFRESH/TUTUP TAB
+// ============================================================
+window.addEventListener('beforeunload', function(e){
+  e.preventDefault();
+  e.returnValue = 'Data yang belum di-Export akan hilang. Yakin mau keluar/refresh?';
+  return e.returnValue;
+});
+
+// ============================================================
 // INIT
 // ============================================================
 loadRemoteData(false);
-setInterval(()=>loadRemoteData(true), REMOTE_POLL_MS);
 </script>
 </body>
 </html>
