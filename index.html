@@ -379,6 +379,7 @@ button:disabled{opacity:.35;cursor:not-allowed;}
     <div class="topbar-app">
       <span class="hamburger" onclick="toggleSidebar()">☰</span>
       <span class="topbar-title" id="pageTitle">Home</span>
+      <span id="liveStatusBadge" style="margin-left:auto;font-size:11px;color:var(--text2,#8888a8);white-space:nowrap;">Memuat data online...</span>
     </div>
     <div class="content">
 
@@ -2822,6 +2823,22 @@ function migrateHero(h){
   };
 }
 
+function applyImportedData(data){
+  heroes=(data.heroes||[]).map(migrateHero);
+  nextHeroId=data.nextHeroId||(heroes.length?Math.max(...heroes.map(h=>h.id))+1:1);
+  history=data.history||[];
+  nextHistId=data.nextHistId||(history.length?Math.max(...history.map(h=>h.id))+1:1);
+  gbpActive=data.gbpActive||false;
+  gbpUsedBlue=data.gbpUsedBlue||[];
+  gbpUsedRed=data.gbpUsedRed||[];
+  laneIcons=data.laneIcons||{CLASH:null,JUNGLE:null,MID:null,ROAM:null,FARM:null};
+  nextSkillId=data.nextSkillId||1;
+  nextBuildId=data.nextBuildId||1;
+  nextChapterId=data.nextChapterId||1;
+  equipment=data.equipment||[];
+  nextEqId=data.nextEqId||(equipment.length?Math.max(...equipment.map(e=>e.id))+1:1);
+}
+
 function importData(e){
   const file=e.target.files[0];
   if(!file)return;
@@ -2830,19 +2847,7 @@ function importData(e){
     try{
       const data=JSON.parse(ev.target.result);
       if(!confirm('Import akan menggantikan semua data Hero Pool, Riwayat Draft, GBP, Logo Lane, dan Equipment yang ada sekarang. Lanjutkan?'))return;
-      heroes=(data.heroes||[]).map(migrateHero);
-      nextHeroId=data.nextHeroId||(heroes.length?Math.max(...heroes.map(h=>h.id))+1:1);
-      history=data.history||[];
-      nextHistId=data.nextHistId||(history.length?Math.max(...history.map(h=>h.id))+1:1);
-      gbpActive=data.gbpActive||false;
-      gbpUsedBlue=data.gbpUsedBlue||[];
-      gbpUsedRed=data.gbpUsedRed||[];
-      laneIcons=data.laneIcons||{CLASH:null,JUNGLE:null,MID:null,ROAM:null,FARM:null};
-      nextSkillId=data.nextSkillId||1;
-      nextBuildId=data.nextBuildId||1;
-      nextChapterId=data.nextChapterId||1;
-      equipment=data.equipment||[];
-      nextEqId=data.nextEqId||(equipment.length?Math.max(...equipment.map(e=>e.id))+1:1);
+      applyImportedData(data);
       resetDraft();
       go('home');
       alert('Data berhasil diimport: '+heroes.length+' hero, '+history.length+' riwayat match, '+equipment.length+' item.');
@@ -2855,13 +2860,48 @@ function importData(e){
 }
 
 // ============================================================
+// LIVE DATA SOURCE (data online, diupdate manual oleh admin lewat GitHub)
+// ============================================================
+const REMOTE_DATA_URL = 'https://raw.githubusercontent.com/TsunDzu132/hok-draft-simulator/refs/heads/main/hok-draft-data.json';
+const REMOTE_POLL_MS = 60000; // cek update tiap 60 detik
+
+function setLiveStatus(text, isError){
+  const el=document.getElementById('liveStatusBadge');
+  if(!el)return;
+  el.textContent=text;
+  el.style.color=isError?'var(--red, #f75050)':'var(--text2, #8888a8)';
+}
+
+async function loadRemoteData(isBackgroundRefresh){
+  try{
+    const res=await fetch(REMOTE_DATA_URL+'?t='+Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    applyImportedData(data);
+    renderLaneFilterRow();
+    renderHeroGrid();
+    renderHistoryForm();
+    renderDraft();
+    renderGBPBar();
+    setLiveStatus('Data online \u2713 diupdate '+new Date().toLocaleTimeString('id-ID'), false);
+  }catch(err){
+    setLiveStatus(isBackgroundRefresh?'Gagal refresh data online (pakai data terakhir)':'Gagal ambil data online, pakai data bawaan', true);
+    if(!isBackgroundRefresh){
+      // fallback: tetap render pakai data lokal yang sudah ke-hardcode di file ini
+      renderLaneFilterRow();
+      renderHeroGrid();
+      renderHistoryForm();
+      renderDraft();
+      renderGBPBar();
+    }
+  }
+}
+
+// ============================================================
 // INIT
 // ============================================================
-renderLaneFilterRow();
-renderHeroGrid();
-renderHistoryForm();
-renderDraft();
-renderGBPBar();
+loadRemoteData(false);
+setInterval(()=>loadRemoteData(true), REMOTE_POLL_MS);
 </script>
 </body>
 </html>
