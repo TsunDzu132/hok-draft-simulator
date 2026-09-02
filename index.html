@@ -340,8 +340,12 @@ button:disabled{opacity:.35;cursor:not-allowed;}
 .tier-empty-hint{font-size:11px;color:var(--text3);font-style:italic;padding:8px;}
 
 @media(max-width:760px){
-  .sidebar{position:fixed;}
+  .sidebar{margin-left:calc(-1 * var(--sidebar-w));}
+  .sidebar:not(.collapsed){margin-left:0;}
   .main{margin-left:0;}
+  .hamburger{position:relative;z-index:60;}
+  .sidebar-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:45;}
+  .sidebar-backdrop.show{display:block;}
   .two-col{grid-template-columns:1fr;}
   .draft3col{grid-template-columns:1fr;}
   .hth,.htr{grid-template-columns:36px 1fr 55px 55px;}
@@ -353,6 +357,7 @@ button:disabled{opacity:.35;cursor:not-allowed;}
 </head>
 <body>
 <div class="shell">
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
   <!-- ===================== SIDEBAR ===================== -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-hd">
@@ -866,7 +871,25 @@ function isBlockedByGBP(name, team){
 function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('collapsed');
   document.getElementById('mainArea').classList.toggle('full');
+  document.getElementById('sidebarBackdrop').classList.toggle('show');
 }
+
+function isMobileWidth(){ return window.innerWidth <= 760; }
+
+function initSidebarForScreenSize(){
+  const sidebar=document.getElementById('sidebar');
+  const backdrop=document.getElementById('sidebarBackdrop');
+  if(isMobileWidth()){
+    sidebar.classList.add('collapsed');
+    document.getElementById('mainArea').classList.add('full');
+    backdrop.classList.remove('show');
+  }else{
+    sidebar.classList.remove('collapsed');
+    document.getElementById('mainArea').classList.remove('full');
+    backdrop.classList.remove('show');
+  }
+}
+window.addEventListener('resize', initSidebarForScreenSize);
 
 const PAGE_TITLES = {home:'Home', heroes:'Heroes', meta:'Tier List', draft:'Draft Simulator', statistik:'Statistics', equipment:'Equipment', settings:'Settings'};
 
@@ -875,6 +898,9 @@ function go(page){
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   document.getElementById('pageTitle').textContent=PAGE_TITLES[page]||page;
+  if(isMobileWidth() && !document.getElementById('sidebar').classList.contains('collapsed')){
+    toggleSidebar();
+  }
 
   if(page==='heroes'){
     document.getElementById('heroesListView').style.display='block';
@@ -2909,6 +2935,7 @@ window.addEventListener('beforeunload', function(e){
 // ============================================================
 // INIT
 // ============================================================
+initSidebarForScreenSize();
 loadRemoteData(false);
 </script>
 </body>
