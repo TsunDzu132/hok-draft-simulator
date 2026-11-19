@@ -209,6 +209,16 @@ button:disabled{opacity:.35;cursor:not-allowed;}
 .dh-counter.blue{border-color:var(--blue);}
 .dh-counter img{width:100%;height:100%;object-fit:cover;}
 .dh-counter-more{font-size:9px;font-weight:700;color:#fff;background:rgba(0,0,0,.75);border-radius:8px;padding:0 4px;line-height:16px;}
+/* ===== mechanics page ===== */
+.mech-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.mech-card{margin-bottom:12px;}
+.mech-head{display:flex;align-items:flex-start;gap:8px;}
+.mech-actions{display:flex;gap:4px;margin-left:auto;flex-shrink:0;}
+.mech-toolbar{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;}
+.mech-title{font-size:15px;font-weight:700;margin-bottom:4px;}
+.mech-points{margin:8px 0 0 18px;padding:0;font-size:13px;color:var(--text2);line-height:1.7;}
+.mech-note{font-size:11px;color:#fcd34d;margin-top:8px;}
+.hero-tag{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--blue-b);background:var(--blue-bg);color:var(--blue);}
 
 .recipe-slot{width:100%;aspect-ratio:1;border-radius:var(--r);border:1px dashed var(--border2);background:var(--bg2);cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all .15s;}
 .recipe-slot:hover{border-color:var(--amber-b);}
@@ -339,10 +349,6 @@ button:disabled{opacity:.35;cursor:not-allowed;}
 .build-item-x{position:absolute;top:0;right:0;background:rgba(0,0,0,.7);color:#fff;font-size:10px;width:16px;height:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:0 0 0 4px;}
 .build-item-add{width:48px;height:48px;border-radius:8px;border:1px dashed var(--border2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text3);font-size:20px;flex-shrink:0;}
 .build-item-add:hover{border-color:var(--blue-b);color:var(--blue);}
-.build-item-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--text3);}
-.bpick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px;}
-.bpick-sec{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin:10px 0 6px;grid-column:1/-1;}
-.bpick-sec:first-child{margin-top:0;}
 
 /* ================= STORY TAB ================= */
 .story-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
@@ -383,183 +389,11 @@ button:disabled{opacity:.35;cursor:not-allowed;}
   .sidebar-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:45;}
   .sidebar-backdrop.show{display:block;}
   .two-col{grid-template-columns:1fr;}
-  .draft3col{grid-template-columns:1fr 1fr;gap:10px 8px;}
-  .draft3col .blue-col{grid-column:1;grid-row:1;}
-  .draft3col .red-col{grid-column:2;grid-row:1;}
-  .draft3col .draftcol-center{grid-column:1 / -1;grid-row:2;}
-  .draftcol-team{gap:8px;min-width:0;}
-  .ban-row{gap:4px;}
-  .ban-slot{flex:1 1 0;width:auto;height:auto;aspect-ratio:1;max-width:42px;min-width:0;}
-  .pick-formation{gap:6px;}
-  .pick-pair{gap:6px;width:100%;}
-  .pick-slot{flex:1 1 0;width:auto;min-width:0;}
-  .pick-pair .pick-slot:only-child{flex:0 0 calc(50% - 3px);}
-  .pick-formation.red-formation .pick-pair:has(.pick-slot:only-child){justify-content:flex-end;}
-  .pick-slot-name,.pick-slot-empty-label{font-size:9px;}
+  .draft3col{grid-template-columns:1fr;}
   .hth,.htr{grid-template-columns:36px 1fr 55px 55px;}
   .hth>*:nth-child(n+5),.htr>*:nth-child(n+5){display:none;}
   .hero-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));}
   .draft-hero-grid{max-height:300px;}
-}
-
-/* ===== HP landscape: layout ala in-game (Blue kiri | Pool tengah | Red kanan), compact ===== */
-@media (orientation:landscape) and (max-height:540px){
-  .draft-actions{margin-bottom:8px;gap:6px;}
-  .draft-actions button{height:28px;font-size:11px;padding:0 10px;}
-  .draft-turn-banner{padding:5px 10px;margin-bottom:8px;font-size:12px;}
-  .draft3col{grid-template-columns:112px minmax(0,1fr) 112px;gap:8px;align-items:start;}
-  .draft3col .blue-col{grid-column:1;grid-row:1;}
-  .draft3col .draftcol-center{grid-column:2;grid-row:1;}
-  .draft3col .red-col{grid-column:3;grid-row:1;}
-  .draftcol-team{gap:5px;}
-  .draftcol-teamlabel{font-size:9px;padding:3px;}
-  .ban-row{gap:3px;}
-  .ban-slot{flex:1 1 0;width:auto;height:auto;aspect-ratio:1;max-width:none;min-width:0;border-radius:5px;}
-  .ban-slot .ban-x-mark{font-size:11px;}
-  .pick-formation,.pick-formation.red-formation{gap:4px;align-items:stretch;}
-  .pick-pair{display:contents;}
-  .pick-slot,.pick-pair .pick-slot:only-child{display:flex;flex-direction:row;align-items:center;width:100%;flex:0 0 auto;height:40px;border-radius:6px;}
-  .red-formation .pick-slot{flex-direction:row-reverse;}
-  .pick-slot-photo{flex:0 0 40px;width:40px;height:40px;aspect-ratio:auto;font-size:14px;}
-  .pick-slot-name,.pick-slot-empty-label{flex:1;min-width:0;font-size:9px;padding:0 3px;}
-  .pick-slot-x{width:13px;height:13px;font-size:9px;top:1px;right:1px;}
-  .red-formation .pick-slot-x{right:auto;left:1px;}
-  .draftcol-center .lane-filter-row{margin-bottom:6px !important;}
-  .draft-hero-grid{grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:5px;max-height:calc(100vh - 150px);}
-  .draft-hero-name{font-size:8px;padding:2px 1px;}
-  #draftHeroSearch{height:28px;margin-bottom:6px !important;}
-}
-
-/* ===== Portrait HP: pick slot jadi baris kecil (foto + nama), bukan kartu besar ===== */
-@media (orientation:portrait) and (max-width:760px){
-  .pick-formation,.pick-formation.red-formation{gap:4px;align-items:stretch;}
-  .pick-pair{display:contents;}
-  .pick-slot,.pick-pair .pick-slot:only-child{display:flex;flex-direction:row;align-items:center;width:100%;flex:0 0 auto;height:40px;border-radius:6px;}
-  .red-formation .pick-slot{flex-direction:row-reverse;}
-  .pick-slot-photo{flex:0 0 40px;width:40px;height:40px;aspect-ratio:auto;font-size:14px;}
-  .pick-slot-name,.pick-slot-empty-label{flex:1;min-width:0;font-size:10px;padding:0 4px;}
-  .pick-slot-x{width:13px;height:13px;font-size:9px;top:1px;right:1px;}
-  .red-formation .pick-slot-x{right:auto;left:1px;}
-  .draft-hero-grid{grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;}
-  .draft-hero-name{font-size:9px;padding:2px 1px;}
-}
-/* ===== Landscape HP: header ringkas & ikut scroll, biar nggak nutupin konten draft ===== */
-@media (orientation:landscape) and (max-height:540px){
-  .topbar-app{position:static;padding:4px 12px;gap:8px;}
-  .topbar-title{font-size:13px;}
-  .content{padding:8px 12px;}
-}
-
-/* ===== Slot pick compact (portrait & landscape HP): hero art ngisi penuh slot, tanpa tulisan "kosong" ===== */
-@media (orientation:portrait) and (max-width:760px), (orientation:landscape) and (max-height:540px){
-  .pick-slot,.pick-pair .pick-slot:only-child{position:relative;display:block;height:46px;}
-  .pick-slot-photo{position:absolute;inset:0;width:100%;height:100%;flex:none;aspect-ratio:auto;}
-  .pick-slot-photo img{object-position:center 22%;}
-  .pick-slot-name{position:absolute;left:0;right:0;bottom:0;flex:none;padding:10px 4px 2px;font-size:10px;font-weight:600;color:#fff;text-align:center;background:linear-gradient(transparent,rgba(0,0,0,.8));text-shadow:0 1px 2px #000;}
-  .pick-slot-empty-label{display:none;}
-  .pick-slot-x{z-index:2;}
-}
-
-/* ===== Sidebar jadi drawer juga di HP landscape (biar nggak makan lebar layar) ===== */
-@media (orientation:landscape) and (max-height:540px){
-  .sidebar{margin-left:calc(-1 * var(--sidebar-w));}
-  .sidebar:not(.collapsed){margin-left:0;}
-  .main{margin-left:0;}
-  .hamburger{position:relative;z-index:60;}
-  .sidebar-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:45;}
-  .sidebar-backdrop.show{display:block;}
-}
-/* ===== Portrait HP: kotak kecil kiri-kanan (tim), pilihan hero di tengah ===== */
-@media (orientation:portrait) and (max-width:760px){
-  #page-draft .content{padding:10px 8px;}
-  .draft3col{grid-template-columns:62px minmax(0,1fr) 62px;gap:6px;align-items:start;}
-  .draft3col .blue-col{grid-column:1;grid-row:1;}
-  .draft3col .draftcol-center{grid-column:2;grid-row:1;min-width:0;}
-  .draft3col .red-col{grid-column:3;grid-row:1;}
-  .draftcol-team{gap:5px;min-width:0;}
-  .draftcol-teamlabel{font-size:8px;padding:3px 0;letter-spacing:0;}
-  .ban-row{display:flex;flex-wrap:wrap;gap:4px;}
-  .ban-slot{flex:0 0 calc(50% - 2px);width:calc(50% - 2px);max-width:none;height:auto;aspect-ratio:1;border-radius:5px;}
-  .pick-formation,.pick-formation.red-formation{gap:4px;}
-  .pick-slot,.pick-pair .pick-slot:only-child{height:62px;width:62px;border-radius:6px;}
-  .pick-slot-name{font-size:8px;padding:8px 1px 1px;}
-  .pick-slot-x{width:14px;height:14px;font-size:9px;}
-  .draftcol-center .lane-filter-row{gap:4px;margin-bottom:6px !important;}
-  .draftcol-center .lane-filter-btn{font-size:0;min-width:0;padding:4px;gap:0;}
-  #draftHeroSearch{height:30px;font-size:12px;margin-bottom:6px !important;}
-  .draft-hero-grid{grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:5px;max-height:62vh;}
-  .draft-hero-name{font-size:8px;padding:2px 1px;}
-}
-
-/* ===== Portrait HP: versi lebih kecil lagi ===== */
-@media (orientation:portrait) and (max-width:760px){
-  .draft3col{grid-template-columns:46px minmax(0,1fr) 46px;gap:5px;}
-  .draftcol-teamlabel{font-size:7px;padding:2px 0;}
-  .ban-row{gap:2px;}
-  .ban-slot{flex:0 0 calc(50% - 1px);width:calc(50% - 1px);border-radius:4px;}
-  .pick-formation,.pick-formation.red-formation{gap:3px;}
-  .pick-slot,.pick-pair .pick-slot:only-child{height:46px;width:46px;border-radius:5px;}
-  .pick-slot-name{font-size:6px;padding:6px 0 1px;}
-  .pick-slot-x{width:11px;height:11px;font-size:7px;top:1px;right:1px;}
-  .red-formation .pick-slot-x{right:auto;left:1px;}
-  .draftcol-center .lane-filter-btn{padding:3px;border-radius:6px;}
-  .draftcol-center .lane-filter-icon{width:20px;height:20px;}
-  .draftcol-center .lane-filter-icon img{width:100%;height:100%;}
-  #draftHeroSearch{height:26px;font-size:11px;}
-  .draft-hero-grid{grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:3px;padding:3px;max-height:66vh;}
-  .draft-hero-grid .hero-grid-name{font-size:7px;padding:1px 0;}
-  .draft-hero-grid .hero-grid-lane-badge{width:12px;height:12px;font-size:7px;top:2px;right:2px;}
-  .draft-hero-info{width:11px;height:11px;font-size:7px;top:1px;left:1px;}
-  .draft-hero-card{border-radius:5px;}
-}
-
-/* ===== Portrait HP: header/tombol padat + hero pool 6 kolom, nama overlay ===== */
-@media (orientation:portrait) and (max-width:760px){
-  .topbar-app{padding:8px 12px;gap:8px;}
-  .topbar-title{font-size:14px;white-space:nowrap;}
-  .gbp-bar{margin-bottom:6px;padding:2px 4px 2px 10px;font-size:10px;}
-  .gbp-bar button{height:20px;font-size:9px;}
-  .draft-actions{gap:4px;margin-bottom:6px;flex-wrap:wrap;}
-  .draft-actions button{height:26px;padding:0 8px;font-size:10px;border-radius:6px;}
-  #draftTurnBanner > *{padding:5px 8px;font-size:12px;margin-bottom:8px;}
-  .draft-hero-grid{grid-template-columns:repeat(auto-fill,minmax(32px,1fr));gap:3px;padding:3px;max-height:72vh;}
-  .draft-hero-card{border-radius:4px;border-width:1px;}
-  .draft-hero-card .draft-hero-name{position:absolute;left:0;right:0;bottom:0;font-size:6px;line-height:1.1;padding:6px 0 1px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.85));}
-  .draft-hero-info{width:10px;height:10px;font-size:6px;top:1px;left:1px;}
-  .draft-hero-lockbadge{font-size:7px;padding:0 2px;top:1px;right:1px;}
-}
-
-/* ===== info tip (ⓘ kecil) ===== */
-.info-tip{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:6px;border-radius:50%;border:1px solid var(--border2,var(--border));font-size:9px;font-weight:700;font-style:italic;font-family:Georgia,serif;color:var(--text3);cursor:pointer;vertical-align:middle;user-select:none;text-transform:none;letter-spacing:0;}
-.info-tip:hover{color:var(--text);border-color:var(--text3);}
-#infoTipPop{position:fixed;z-index:300;display:none;max-width:min(260px,86vw);background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:8px 10px;font-size:12px;line-height:1.5;color:var(--text2);box-shadow:0 6px 24px rgba(0,0,0,.5);}
-/* stat panel & GBP panel = sel grid sendiri (desktop: kolom tengah, di bawah pool) */
-.draft-stat-cell,.draft-gbp-cell{grid-column:2;min-width:0;}
-.draft-gbp-cell:empty,.draft-stat-cell:empty{display:none;}
-@media(max-width:760px){.draft-stat-cell,.draft-gbp-cell{grid-column:1 / -1;}}
-@media (orientation:landscape) and (max-height:540px){.draft-stat-cell,.draft-gbp-cell{grid-column:1 / -1;}}
-/* ===== Portrait HP: pool hero setinggi 5 pick, stat panel lebar penuh di bawahnya ===== */
-@media (orientation:portrait) and (max-width:760px){
-  .draft3col{align-items:stretch;}
-  .draftcol-center{display:flex;flex-direction:column;contain:size;overflow:hidden;min-height:230px;}
-  .draftcol-center > *{flex:none;}
-  .draftcol-center #draftCounterPanel{max-height:45%;overflow:auto;}
-  .draftcol-center .draft-hero-grid{flex:1 1 0;min-height:0;max-height:none;}
-  .draft-stat-cell,.draft-gbp-cell{margin-top:4px;}
-  .draft-gbp-cell{display:none;}
-  .mode-switcher{overflow-x:auto;}
-  .mode-switch-btn{white-space:nowrap;padding:5px 9px;font-size:11px;}
-  .suggest-hd{flex-wrap:wrap;gap:6px;}
-  .suggest-title{font-size:12px;}
-}
-
-/* ===== Portrait: kartu hero tetap kotak penuh (jangan ke-gencet), sisanya scroll di dalam pool ===== */
-@media (orientation:portrait) and (max-width:760px){
-  .draftcol-center{min-width:0;}
-  .draftcol-center .draft-hero-grid{align-content:start;grid-auto-rows:max-content;overflow-y:auto;overflow-x:hidden;}
-  .draft-hero-card{aspect-ratio:auto;min-height:0;}
-  .draft-hero-card .draft-hero-photo{aspect-ratio:1;height:auto;width:100%;}
-  .draft-hero-photo img,.pick-slot-photo img{object-position:center 15%;}
 }
 
 /* ================= HOME DASHBOARD ================= */
@@ -623,7 +457,6 @@ button:disabled{opacity:.35;cursor:not-allowed;}
 <body>
 <div class="shell">
   <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
-  <div id="infoTipPop"></div>
   <!-- ===================== SIDEBAR ===================== -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-hd">
@@ -636,7 +469,7 @@ button:disabled{opacity:.35;cursor:not-allowed;}
       <div class="snav-item" data-page="draft" onclick="go('draft')"><span class="snav-icon">⚔</span>Draft Simulator</div>
       <div class="snav-item" data-page="statistik" onclick="go('statistik')"><span class="snav-icon">▦</span>Statistics</div>
       <div class="snav-item" data-page="equipment" onclick="go('equipment')"><span class="snav-icon">⛨</span>Equipment</div>
-      <div class="snav-item" data-page="mechanics" onclick="go('mechanics')"><span class="snav-icon">▶</span>Mechanics</div>
+      <div class="snav-item" data-page="mechanics" onclick="go('mechanics')"><span class="snav-icon">✦</span>Mechanics</div>
       <div class="snav-item" data-page="settings" onclick="go('settings')"><span class="snav-icon">⚙</span>Settings</div>
     </div>
     <div class="sidebar-links"><div class="yt-links" id="ytlinks-global"></div></div>
@@ -677,6 +510,12 @@ button:disabled{opacity:.35;cursor:not-allowed;}
             <button class="primary" onclick="openHeroAddModal()">+ Add Hero</button>
           </div>
           <div class="lane-filter-row" id="laneFilterRow" style="margin-bottom:14px;"></div>
+          <div class="eq-filterbar">
+            <select id="hClassFilter" onchange="setHeroTagFilter('class',this.value)"></select>
+            <select id="hSubclassFilter" onchange="setHeroTagFilter('subclass',this.value)"></select>
+            <select id="hJobFilter" onchange="setHeroTagFilter('job',this.value)"></select>
+            <button class="sm" onclick="resetHeroTagFilters()">Reset</button>
+          </div>
           <div class="hero-grid" id="heroGrid"></div>
         </div>
         <div id="heroDetailView" style="display:none;"></div>
@@ -692,12 +531,11 @@ button:disabled{opacity:.35;cursor:not-allowed;}
       <!-- ============ DRAFT SIMULATOR ============ -->
       <div class="page" id="page-draft">
         <div class="yt-links" id="ytlinks-draft"></div>
-                <div class="draft-actions">
+        <div class="draft-actions">
           <button class="danger" onclick="confirmResetDraft()">Reset Draft</button>
           <button onclick="undoDraft()" id="undoBtn">↶ Undo</button>
-          <button class="success" onclick="confirmLockGBP()">🔒 Lock Hero</button>
+          <button class="success" onclick="confirmLockGBP()">💾 Save (lock to GBP)</button>
           <button class="amber" onclick="go('statistik');switchStatTab('gbp')" id="gbpStatusBtnDraft">GBP: inactive</button>
-          <button onclick="swapGBPSides()" id="gbpSwapBtnDraft">🔄 Swap · A=Blue</button>
         </div>
         <div id="draftTurnBanner"></div>
 
@@ -713,6 +551,8 @@ button:disabled{opacity:.35;cursor:not-allowed;}
             <div class="lane-filter-row" id="draftLaneFilterRow" style="margin-bottom:10px;justify-content:center;"></div>
             <input type="text" id="draftHeroSearch" placeholder="Search hero..." oninput="renderDraftHeroPool()" style="margin-bottom:10px;"/>
             <div class="hero-grid draft-hero-grid" id="draftHeroPool"></div>
+            <div id="slotStatPanel" style="margin-top:16px;"></div>
+            <div id="draftGbpLockedPanel" style="margin-top:16px;"></div>
           </div>
 
           <div class="draftcol-team red-col">
@@ -720,9 +560,6 @@ button:disabled{opacity:.35;cursor:not-allowed;}
             <div class="ban-row" id="banrow-red"></div>
             <div class="pick-formation red-formation" id="pickform-red"></div>
           </div>
-
-          <div id="slotStatPanel" class="draft-stat-cell"></div>
-          <div id="draftGbpLockedPanel" class="draft-gbp-cell"></div>
         </div>
       </div>
 
@@ -811,13 +648,13 @@ button:disabled{opacity:.35;cursor:not-allowed;}
         <div id="equipmentDetailView" style="display:none;"></div>
       </div>
 
-      <!-- ============ SETTINGS ============ -->
-      <!-- ============ MECHANICS (link guide YouTube per topik) ============ -->
+      <!-- ============ MECHANICS ============ -->
       <div class="page" id="page-mechanics">
-        <input type="text" id="mechanicsSearch" placeholder="Search topic..." oninput="renderMechanics()" style="margin-bottom:12px;"/>
-        <div id="mechanicsList" style="display:flex;flex-direction:column;gap:10px;"></div>
+        <div class="yt-links" id="ytlinks-mechanics"></div>
+        <div id="mechanicsBody"></div>
       </div>
 
+      <!-- ============ SETTINGS ============ -->
       <div class="page" id="page-settings">
         <div class="yt-links" id="ytlinks-settings"></div>
         <div class="card">
@@ -843,9 +680,9 @@ button:disabled{opacity:.35;cursor:not-allowed;}
 
 <!-- MODAL: Add/Edit Hero -->
 <div class="moverlay" id="heroModalOverlay" style="display:none" onclick="if(event.target.id==='heroModalOverlay')closeHeroModal()">
-  <div class="mbox" style="width:380px;">
+  <div class="mbox" style="width:420px;">
     <div class="mhd"><span class="mtitle" id="heroModalTitle">Add Hero</span><span class="mclose" onclick="closeHeroModal()">×</span></div>
-    <div style="padding:16px;">
+    <div style="padding:16px;overflow-y:auto;flex:1;min-height:0;">
       <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;">
         <div style="flex-shrink:0;text-align:center;">
           <img id="hPhotoPreview" class="havatar-lg" style="display:none;margin-bottom:5px;"/>
@@ -863,7 +700,7 @@ button:disabled{opacity:.35;cursor:not-allowed;}
             <option value="ROAM">Roam</option>
             <option value="FARM">Farm Lane</option>
           </select>
-          <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Role</div>
+          <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Class</div>
           <select id="hRole">
             <option value="Fighter">Fighter</option>
             <option value="Tank">Tank</option>
@@ -874,10 +711,48 @@ button:disabled{opacity:.35;cursor:not-allowed;}
           </select>
         </div>
       </div>
-      <div style="display:flex;gap:6px;justify-content:flex-end;">
-        <button onclick="closeHeroModal()">Cancel</button>
-        <button class="primary" onclick="saveHero()">Save</button>
+      <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Subclass</div>
+      <input type="text" id="hSubclass" list="hSubclassList" placeholder="mis. Artillery" style="margin-bottom:10px;"/>
+      <datalist id="hSubclassList"></datalist>
+      <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Job Desc (bisa lebih dari satu)</div>
+      <div class="chips" id="hJobChips" style="margin:0 0 6px;"></div>
+      <div style="display:flex;gap:6px;">
+        <input type="text" id="hJobInput" list="hJobList" placeholder="mis. Initiator" onkeydown="if(event.key==='Enter'){event.preventDefault();addHeroJob();}"/>
+        <button onclick="addHeroJob()">+ Add</button>
       </div>
+      <datalist id="hJobList"></datalist>
+    </div>
+    <div style="display:flex;gap:6px;justify-content:flex-end;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;">
+      <button onclick="closeHeroModal()">Cancel</button>
+      <button class="primary" onclick="saveHero()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Mechanics topic -->
+<div class="moverlay" id="mechModalOverlay" style="display:none" onclick="if(event.target.id==='mechModalOverlay')closeMechModal()">
+  <div class="mbox" style="width:520px;">
+    <div class="mhd"><span class="mtitle" id="mechModalTitle">Add Topic</span><span class="mclose" onclick="closeMechModal()">×</span></div>
+    <div style="padding:16px;overflow-y:auto;flex:1;min-height:0;">
+      <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Judul</div>
+      <input type="text" id="mechTitle" placeholder="mis. Gold Sharing" style="margin-bottom:10px;"/>
+      <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Ringkasan</div>
+      <textarea id="mechSummary" placeholder="Penjelasan singkat..." style="min-height:70px;margin-bottom:10px;"></textarea>
+      <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Poin-poin (satu poin per baris)</div>
+      <textarea id="mechPoints" placeholder="Poin 1&#10;Poin 2" style="min-height:130px;margin-bottom:10px;"></textarea>
+      <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2);margin-bottom:10px;cursor:pointer;">
+        <input type="checkbox" id="mechVerify" style="width:auto;"/> Tampilkan catatan: angka bisa berubah tiap patch
+      </label>
+      <div style="font-size:11px;color:var(--text2);margin-bottom:3px;">Link video (opsional)</div>
+      <div style="display:flex;gap:6px;">
+        <input type="text" id="mechLinkTitle" placeholder="Judul link" style="flex:1;"/>
+        <input type="text" id="mechLinkUrl" placeholder="https://youtu.be/..." style="flex:2;"/>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;justify-content:flex-end;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;">
+      <button class="danger" id="mechDeleteBtn" onclick="deleteMech()" style="margin-right:auto;">Delete</button>
+      <button onclick="closeMechModal()">Cancel</button>
+      <button class="primary" onclick="saveMech()">Save</button>
     </div>
   </div>
 </div>
@@ -887,22 +762,6 @@ button:disabled{opacity:.35;cursor:not-allowed;}
   <div class="mbox" style="width:560px;">
     <div class="mhd"><span class="mtitle">Stat Guide</span><span class="mclose" onclick="closeEqStatGuide()">×</span></div>
     <div style="padding:6px 16px 16px;overflow-y:auto;flex:1;min-height:0;" id="eqStatGuideBody"></div>
-  </div>
-</div>
-
-<!-- MODAL: Pick item for Build Preset (dari Equipment) -->
-<div class="moverlay" id="buildPickOverlay" style="display:none" onclick="if(event.target.id==='buildPickOverlay')closeBuildItemPicker()">
-  <div class="mbox" style="width:480px;">
-    <div class="mhd"><span class="mtitle">Pilih Item dari Equipment</span><span class="mclose" onclick="closeBuildItemPicker()">×</span></div>
-    <div style="padding:12px 16px 4px;display:flex;gap:8px;">
-      <input type="text" id="buildPickSearch" placeholder="Cari item..." oninput="renderBuildItemPicker()" style="flex:1;"/>
-      <select id="buildPickCat" onchange="renderBuildItemPicker()" style="width:130px;flex-shrink:0;"></select>
-    </div>
-    <div style="padding:4px 16px 8px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text3);">
-      <span id="buildPickCount"></span>
-      <button class="sm primary" onclick="closeBuildItemPicker()">Selesai</button>
-    </div>
-    <div style="padding:4px 16px 16px;overflow-y:auto;flex:1;min-height:0;"><div class="bpick-grid" id="buildPickGrid"></div></div>
   </div>
 </div>
 
@@ -1009,10 +868,12 @@ function newHeroObj(id, name, lane, role, photo){
   return {
     id, name, lane, role, photo,
     tier: null, // 'S'|'A'|'B'|'C'|'D'|null
+    subclass: '',   // contoh: Artillery
+    jobs: [],       // job desc: ['Initiator', ...]
     guide: '',
     faq: [], // {q, a}
     skills: [], // {id, type:'Pasif'|'1'|'2'|'3'|'Ultimate', name, icon, desc, combo}
-    buildPresets: [], // {id, name, note, items:[equipmentId | legacy iconBase64, ...]}
+    buildPresets: [], // {id, name, note, items:[iconBase64,...]}
     matchupGood: [], // hero names: good combo with
     matchupWeak: [], // hero names: lemah/jelek lawan
     matchupStrong: [], // hero names: kuat/bagus lawan
@@ -1041,30 +902,38 @@ let eqCategoryFilter = 'ALL';
 // LINK PERMANEN (YouTube dll). Ditulis di kode, BUKAN di data, jadi tidak ikut
 // Export/Import dan tidak bisa dihapus lewat tombol Delete di situs.
 // Format: {title:'Item Guide', url:'https://youtu.be/xxxx'}  (url harus diawali https://)
-// Opsional: icon:'♥' untuk mengganti ikon ▶ bawaan.
 // ============================================================
+// Link video kamu. Ganti/tambah di sini, lalu pakai YT.nama di PERMANENT_LINKS atau MECHANICS.
+const YT = {
+  gold:  'https://youtu.be/9pv3WZ7Bwyc',
+  item:  'https://www.youtube.com/watch?v=GKP1esVKeBo',
+  roam:  'https://youtu.be/Sepf4ZnH514',
+  phase: 'https://youtu.be/W0v2JECHwgI',
+};
 const PERMANENT_LINKS = {
-  global: [          // muncul di sidebar, semua halaman
-    {title:'Support', icon:'♥', url:'https://saweria.co/TsunDzu'},
-  ],
+  global: [],        // muncul di sidebar, semua halaman
   home: [],
   heroes: [],        // halaman daftar hero
   meta: [],          // Tier List
   draft: [],         // Draft Simulator
   statistik: [],
-  equipment: [],     // halaman Equipment
+  equipment: [ {title:'Item Guide', url:YT.item} ],
+  mechanics: [ {title:'Gold Mechanic HOK', url:YT.gold}, {title:'Phase di HOK', url:YT.phase} ],
   settings: [],
   heroTab: {         // di dalam halaman detail hero
-    item: [],        // tab Build
+    item: [ {title:'Item Guide', url:YT.item} ],   // tab Build
     guide: [],       // tab How to Play
     matchup: [],     // tab Match Up
+  },
+  heroLane: {        // di tab How to Play, hanya untuk hero di lane tersebut
+    ROAM: [ {title:'Cara Main Roam', url:YT.roam} ],
   },
 };
 function permLinksHTML(list){
   if(!Array.isArray(list)) return '';
   const items=list.filter(l=>l && /^https?:\/\//i.test(l.url||'') && l.title);
   if(!items.length) return '';
-  return `<div class="yt-links">${items.map(l=>`<a class="yt-link" href="${homeEsc(l.url)}" target="_blank" rel="noopener noreferrer">${homeEsc(l.icon||'▶')} ${homeEsc(l.title)}</a>`).join('')}</div>`;
+  return `<div class="yt-links">${items.map(l=>`<a class="yt-link" href="${homeEsc(l.url)}" target="_blank" rel="noopener noreferrer">▶ ${homeEsc(l.title)}</a>`).join('')}</div>`;
 }
 function renderPermanentLinks(page){
   const el=document.getElementById('ytlinks-'+page);
@@ -1072,6 +941,155 @@ function renderPermanentLinks(page){
   const g=document.getElementById('ytlinks-global');
   if(g) g.innerHTML=permLinksHTML(PERMANENT_LINKS.global).replace('<div class="yt-links">','').replace(/<\/div>$/,'');
 }
+
+// ============================================================
+// GAME MECHANICS (halaman Mechanics). Edit teks di sini. verify:true = tampilkan catatan
+// bahwa angkanya dari panduan umum dan bisa berubah tiap patch.
+// ============================================================
+const MECHANICS = [
+  {id:'gold', title:'Gold: Sumber dan Perhitungan',
+   summary:'Gold dipakai untuk membeli item. Kamu mendapatkannya dari beberapa sumber sekaligus.',
+   points:[
+     'Gold pasif: tiap hero mendapat gold otomatis setiap detik selama pertandingan.',
+     'Last hit: minion dan monster jungle memberi gold penuh ke hero yang menghabisinya.',
+     'Gold minion naik seiring waktu. Contoh: minion mage 36 gold di awal dan 54 setelah menit ke-10, minion tameng 54 menjadi 81, minion meriam 93 menjadi 140.',
+     'Tower, objektif netral, kill, dan assist juga memberi gold.'],
+   verify:true, link:{title:'Video Gold Mechanic HOK', url:YT.gold}},
+  {id:'gold-sharing', title:'Gold Sharing',
+   summary:'Kalau ada rekan di dekat minion atau monster yang mati, EXP dan gold ikut dibagi ke rekan di sekitar.',
+   points:[
+     'Karena itu roam dan support yang menempel di lane ikut mengambil bagian farm dari hero yang last hit.',
+     'Besar pembagiannya tergantung jumlah rekan di sekitar. Rincian angkanya ada di video Gold Mechanic.'],
+   link:{title:'Video Gold Mechanic HOK', url:YT.gold}},
+  {id:'first-blood', title:'First Blood',
+   summary:'Kill pertama di satu pertandingan memberi bonus gold. Di panduan umum nilainya 300 gold.',
+   points:[], verify:true},
+  {id:'kill-bounty', title:'Gold dari Kill (Bounty Hero)',
+   summary:'Tiap hero punya bounty yang berubah mengikuti performanya.',
+   points:[
+     'Bounty awal tiap hero 200 gold.',
+     'Setiap kali hero membunuh musuh, bounty-nya naik, maksimal 600 gold. Contoh: mati setelah 5 kill, musuh mendapat 500 gold.',
+     'Setiap kali mati, bounty turun, minimal 20 gold, dan pulih ke 200 setelah dia membunuh lagi.'],
+   verify:true},
+  {id:'assist', title:'Assist',
+   summary:'Hero yang membantu kill juga mendapat gold.',
+   points:[
+     'Gold assist adalah setengah dari gold kill milik hero yang menghabisi.',
+     'Kalau assist lebih dari satu orang, gold assist dibagi rata.',
+     'Assist didapat dengan memberi damage ke musuh sebelum mati, atau dengan shield atau heal ke rekan yang melakukan kill.'],
+   verify:true},
+  {id:'primal-bond', title:'Primal Bond',
+   summary:'Debuff yang diterima tim yang mengalahkan Tyrant atau Overlord, supaya satu tim tidak memonopoli kedua objektif.',
+   points:[
+     'Selama 90 detik, damage tim itu ke objektif netral yang satunya turun 50%. Pada versi objektif yang lebih kuat, angkanya bisa 60%.',
+     'Kalau hero yang masih kena Primal Bond tetap menyerang Tyrant atau Overlord, objektif membalas dengan serangan area Primal Barrage - Rage yang damage-nya sangat besar.',
+     'Jadi sebelum mengambil objektif kedua, cek dulu apakah timmu masih kena Primal Bond.']},
+  {id:'phases', title:'Phase di HOK',
+   summary:'Pertandingan berjalan dalam beberapa fase, dan prioritas tim berubah di tiap fase.',
+   points:[
+     'Awal (sekitar 4 menit pertama): fokus farm minion dan monster jungle, ambil buff, dan rebut tower pertama.',
+     'Setelah itu sampai sekitar menit ke-10: teamfight dan objektif seperti Tyrant dan Overlord mulai menentukan keunggulan gold.',
+     'Pembagian fase selengkapnya ada di video.'],
+   link:{title:'Video Phase di HOK', url:YT.phase}},
+];
+// null = pakai bawaan (MECHANICS). Begitu kamu edit, salinannya disimpan di sini dan ikut Export/Import Data.
+let mechanicsData=null;
+let editMechIdx=null;
+function getMechanics(){return mechanicsData||MECHANICS;}
+function normalizeMechanic(m){
+  if(!m||typeof m!=='object'||!String(m.title||'').trim()) return null;
+  const link=(m.link&&/^https?:\/\//i.test(m.link.url||'')&&String(m.link.title||'').trim())?{title:String(m.link.title).trim(),url:String(m.link.url).trim()}:null;
+  return {
+    id:String(m.id||('m'+Date.now()+Math.floor(Math.random()*1000))),
+    title:String(m.title).trim(),
+    summary:String(m.summary||''),
+    points:Array.isArray(m.points)?m.points.map(x=>String(x).trim()).filter(Boolean):[],
+    verify:!!m.verify,
+    link
+  };
+}
+function ensureMechanicsEditable(){
+  if(!mechanicsData) mechanicsData=MECHANICS.map(m=>normalizeMechanic(JSON.parse(JSON.stringify(m)))).filter(Boolean);
+}
+function renderMechanics(){
+  const el=document.getElementById('mechanicsBody'); if(!el)return;
+  const list=getMechanics();
+  el.innerHTML=`<div class="mech-toolbar">
+      <button class="primary" onclick="openMechModal(-1)">+ Add Topic</button>
+      <button onclick="resetMechanics()">Reset ke bawaan</button>
+      <span style="font-size:11px;color:var(--text3);">Setelah edit, klik Export Data di sidebar lalu upload JSON-nya ke GitHub supaya tersimpan.</span>
+    </div>
+    <div class="mech-nav">${list.map(m=>`<span class="eq-chip" onclick="scrollToMechanic('${homeEsc(m.id)}')">${homeEsc(m.title)}</span>`).join('')}</div>`
+  + (list.length?list.map((m,i)=>`<div class="card mech-card" id="mech-${homeEsc(m.id)}">
+      <div class="mech-head">
+        <div class="mech-title">${homeEsc(m.title)}</div>
+        <div class="mech-actions">
+          <button class="sm" onclick="moveMech(${i},-1)" ${i===0?'disabled':''} title="Naik">↑</button>
+          <button class="sm" onclick="moveMech(${i},1)" ${i===list.length-1?'disabled':''} title="Turun">↓</button>
+          <button class="sm" onclick="openMechModal(${i})">Edit</button>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.6;white-space:pre-line;">${homeEsc(m.summary)}</div>
+      ${m.points&&m.points.length?`<ul class="mech-points">${m.points.map(pt=>`<li>${homeEsc(pt)}</li>`).join('')}</ul>`:''}
+      ${m.verify?`<div class="mech-note">Angka dari panduan umum dan bisa berubah tiap patch. Cek patch terbaru.</div>`:''}
+      ${m.link?`<div class="yt-links" style="margin:10px 0 0;"><a class="yt-link" href="${homeEsc(m.link.url)}" target="_blank" rel="noopener noreferrer">▶ ${homeEsc(m.link.title)}</a></div>`:''}
+    </div>`).join(''):`<div style="text-align:center;padding:30px;color:var(--text3);font-size:13px;">Belum ada topik.</div>`);
+}
+function openMechModal(idx){
+  editMechIdx=idx;
+  const m=idx>=0?getMechanics()[idx]:null;
+  document.getElementById('mechModalTitle').textContent=m?'Edit Topic':'Add Topic';
+  document.getElementById('mechTitle').value=m?m.title:'';
+  document.getElementById('mechSummary').value=m?m.summary:'';
+  document.getElementById('mechPoints').value=m?(m.points||[]).join('\n'):'';
+  document.getElementById('mechVerify').checked=m?!!m.verify:false;
+  document.getElementById('mechLinkTitle').value=m&&m.link?m.link.title:'';
+  document.getElementById('mechLinkUrl').value=m&&m.link?m.link.url:'';
+  document.getElementById('mechDeleteBtn').style.display=m?'':'none';
+  document.getElementById('mechModalOverlay').style.display='flex';
+}
+function closeMechModal(){document.getElementById('mechModalOverlay').style.display='none';editMechIdx=null;}
+function saveMech(){
+  const title=document.getElementById('mechTitle').value.trim();
+  if(!title){alert('Judul wajib diisi.');return;}
+  const linkTitle=document.getElementById('mechLinkTitle').value.trim();
+  const linkUrl=document.getElementById('mechLinkUrl').value.trim();
+  if(linkUrl&&!/^https?:\/\//i.test(linkUrl)){alert('Link harus diawali https://');return;}
+  if(linkUrl&&!linkTitle){alert('Isi juga judul link-nya.');return;}
+  ensureMechanicsEditable();
+  const old=editMechIdx>=0?mechanicsData[editMechIdx]:null;
+  const entry=normalizeMechanic({
+    id:old?old.id:undefined,
+    title,
+    summary:document.getElementById('mechSummary').value,
+    points:document.getElementById('mechPoints').value.split('\n'),
+    verify:document.getElementById('mechVerify').checked,
+    link:linkUrl?{title:linkTitle,url:linkUrl}:null
+  });
+  if(old) mechanicsData[editMechIdx]=entry; else mechanicsData.push(entry);
+  closeMechModal();
+  renderMechanics();
+}
+function deleteMech(){
+  if(editMechIdx==null||editMechIdx<0)return;
+  if(!confirm('Hapus topik ini?'))return;
+  ensureMechanicsEditable();
+  mechanicsData.splice(editMechIdx,1);
+  closeMechModal();
+  renderMechanics();
+}
+function moveMech(i,dir){
+  ensureMechanicsEditable();
+  const j=i+dir; if(j<0||j>=mechanicsData.length)return;
+  const t=mechanicsData[i]; mechanicsData[i]=mechanicsData[j]; mechanicsData[j]=t;
+  renderMechanics();
+}
+function resetMechanics(){
+  if(!confirm('Kembalikan semua topik ke bawaan? Semua perubahanmu di halaman ini akan hilang.'))return;
+  mechanicsData=null;
+  renderMechanics();
+}
+function scrollToMechanic(id){const e=document.getElementById('mech-'+id); if(e&&e.scrollIntoView)e.scrollIntoView({behavior:'smooth',block:'start'});}
 
 // Stats yang bisa dipakai untuk filter/sortir. Mau tambah stat baru? Cukup tambah satu baris di sini.
 const EQ_STATS = [
@@ -1215,19 +1233,8 @@ const PICK_FORMATION_RED  = [['pick1_red_1','pick1_red_2'],['pick1_red_3','pick2
 
 // GBP state
 let gbpActive = false;
-let gbpUsedBlue = []; // = kunci Team A (nama lama dipertahankan biar save lama tetap kebaca)
-let gbpUsedRed  = []; // = kunci Team B
-let gbpSwapped = false; // false: Team A di sisi Blue, Team B di sisi Red. true: kebalikannya
-function gbpTeamOfSide(side){ return ((side==='blue')!==gbpSwapped)?'A':'B'; }
-function gbpListOfSide(side){ return gbpTeamOfSide(side)==='A'?gbpUsedBlue:gbpUsedRed; }
-function gbpSideOfTeam(t){ return ((t==='A')!==gbpSwapped)?'blue':'red'; }
-function swapGBPSides(){
-  gbpSwapped=!gbpSwapped;
-  renderGBPBar();
-  renderDraft();
-  renderSlotStatPanel();
-  if(typeof currentStatTab!=='undefined' && currentStatTab==='gbp') renderGBPTab();
-}
+let gbpUsedBlue = [];
+let gbpUsedRed  = [];
 
 // draft state
 let draft = {};
@@ -1317,23 +1324,21 @@ function getDraftUsed(){
 
 function isBlockedByGBP(name, team){
   if(!gbpActive) return false;
-  if(team==='blue' || team==='red') return gbpListOfSide(team).includes(name);
+  if(team==='blue') return gbpUsedBlue.includes(name);
+  if(team==='red')  return gbpUsedRed.includes(name);
   return false;
 }
 
 // ============================================================
 // SIDEBAR / NAVIGATION
 // ============================================================
-const MOBILE_MQ='(max-width:760px), (orientation:landscape) and (max-height:540px)';
-function isMobileWidth(){ return window.matchMedia(MOBILE_MQ).matches; }
-function setSidebarOpen(open){
-  document.getElementById('sidebar').classList.toggle('collapsed',!open);
-  document.getElementById('mainArea').classList.toggle('full',!open);
-  document.getElementById('sidebarBackdrop').classList.toggle('show',open && isMobileWidth());
-}
 function toggleSidebar(){
-  setSidebarOpen(document.getElementById('sidebar').classList.contains('collapsed'));
+  document.getElementById('sidebar').classList.toggle('collapsed');
+  document.getElementById('mainArea').classList.toggle('full');
+  document.getElementById('sidebarBackdrop').classList.toggle('show');
 }
+
+function isMobileWidth(){ return window.innerWidth <= 760; }
 
 function initSidebarForScreenSize(){
   const sidebar=document.getElementById('sidebar');
@@ -1348,55 +1353,9 @@ function initSidebarForScreenSize(){
     backdrop.classList.remove('show');
   }
 }
-// Hanya reset saat pindah mode (HP <-> desktop). Resize biasa (address bar muncul/hilang, keyboard) jangan nutup/buka sidebar.
-let lastMobileMode=null;
-window.addEventListener('resize', function(){
-  const m=isMobileWidth();
-  if(m!==lastMobileMode){ lastMobileMode=m; initSidebarForScreenSize(); }
-});
+window.addEventListener('resize', initSidebarForScreenSize);
 
-// ============================================================
-// INFO TIP — penjelasan disembunyikan di balik tanda ⓘ kecil, muncul saat dipencet
-// ============================================================
-function infoTip(t){
-  return `<span class="info-tip" data-tip="${homeEsc(t)}" onclick="showInfoTip(event,this)">i</span>`;
-}
-function showInfoTip(e,el){
-  e.stopPropagation();
-  const pop=document.getElementById('infoTipPop');
-  if(pop.style.display==='block' && pop._src===el){pop.style.display='none';return;}
-  pop.textContent=el.dataset.tip; pop._src=el; pop.style.display='block';
-  const r=el.getBoundingClientRect(), pw=pop.offsetWidth, ph=pop.offsetHeight;
-  const x=Math.min(Math.max(8,r.left+r.width/2-pw/2), window.innerWidth-pw-8);
-  let y=r.bottom+6; if(y+ph>window.innerHeight-8) y=r.top-ph-6;
-  pop.style.left=x+'px'; pop.style.top=Math.max(8,y)+'px';
-}
-document.addEventListener('click',()=>{const p=document.getElementById('infoTipPop'); if(p) p.style.display='none';});
-
-// ============================================================
-// MECHANICS — topik + link guide YouTube. Ditulis di kode (seperti PERMANENT_LINKS),
-// jadi tidak ikut Export/Import dan tidak bisa dihapus lewat situs.
-// Format: {topic:'Gold Sharing', note:'(opsional, muncul di tanda i)', links:[{title:'Judul video', url:'https://youtu.be/xxxx'}]}
-// ============================================================
-const GUIDE_TOPICS = [
-  {topic:'Textbook Main Roam', links:[]},
-  {topic:'Gold Sharing', links:[]},
-];
-function renderMechanics(){
-  const el=document.getElementById('mechanicsList'); if(!el)return;
-  const q=((document.getElementById('mechanicsSearch')||{value:''}).value||'').toLowerCase().trim();
-  const list=GUIDE_TOPICS.filter(t=>!q||t.topic.toLowerCase().includes(q)||(t.links||[]).some(l=>(l.title||'').toLowerCase().includes(q)));
-  if(!list.length){el.innerHTML='<div style="text-align:center;padding:20px;color:var(--text3);font-size:12px;">No topics found.</div>';return;}
-  el.innerHTML=list.map(t=>{
-    const links=(t.links||[]).filter(l=>l&&/^https?:\/\//i.test(l.url||'')&&l.title);
-    return `<div class="card">
-      <div class="clabel">${homeEsc(t.topic)}${t.note?infoTip(t.note):''}</div>
-      ${links.length?`<div class="yt-links">${links.map(l=>`<a class="yt-link" href="${homeEsc(l.url)}" target="_blank" rel="noopener noreferrer">▶ ${homeEsc(l.title)}</a>`).join('')}</div>`:'<span style="font-size:12px;color:var(--text3);">Coming soon</span>'}
-    </div>`;
-  }).join('');
-}
-
-const PAGE_TITLES = {home:'Home', heroes:'Heroes', meta:'Tier List', draft:'Draft Simulator', statistik:'Statistics', equipment:'Equipment', mechanics:'Mechanics', settings:'Settings'};
+const PAGE_TITLES = {home:'Home', heroes:'Heroes', meta:'Tier List', draft:'Draft Simulator', statistik:'Statistics', equipment:'Equipment', mechanics:'Game Mechanics', settings:'Settings'};
 
 function go(page){
   document.querySelectorAll('.snav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===page));
@@ -1408,7 +1367,6 @@ function go(page){
   }
 
   if(page==='home')renderHome();
-  if(page==='mechanics')renderMechanics();
   if(page==='heroes'){
     document.getElementById('heroesListView').style.display='block';
     document.getElementById('heroDetailView').style.display='none';
@@ -1416,6 +1374,7 @@ function go(page){
     renderHeroGrid();
   }
   if(page==='draft'){renderDraft();renderSlotStatPanel();}
+  if(page==='mechanics')renderMechanics();
   if(page==='statistik'){
     if(currentStatTab==='table')renderStatTable();
     if(currentStatTab==='history'){renderHistoryForm();renderHistoryList();}
@@ -1447,14 +1406,12 @@ function renderGBPBar(){
   const txt=document.getElementById('gbpBarText');
   bar.classList.toggle('on', gbpActive);
   if(gbpActive){
-    txt.textContent = `GBP on · Team A ${gbpUsedBlue.length} / Team B ${gbpUsedRed.length}`;
+    txt.textContent = `GBP on · Blue ${gbpUsedBlue.length} / Red ${gbpUsedRed.length}`;
   } else {
     txt.textContent = 'GBP off';
   }
   const btn=document.getElementById('gbpStatusBtnDraft');
-  if(btn) btn.textContent = gbpActive ? `GBP: active (A ${gbpUsedBlue.length} / B ${gbpUsedRed.length})` : 'GBP: inactive';
-  const sw=document.getElementById('gbpSwapBtnDraft');
-  if(sw) sw.textContent = gbpSwapped ? '🔄 Swap · A=Red' : '🔄 Swap · A=Blue';
+  if(btn) btn.textContent = gbpActive ? `GBP: active (Blue ${gbpUsedBlue.length} / Red ${gbpUsedRed.length})` : 'GBP: inactive';
 }
 
 // ============================================================
@@ -1480,9 +1437,13 @@ function hSetFilter(f){
 }
 
 function renderHeroGrid(){
+  renderHeroTagFilterBar();
   const q=(document.getElementById('hSearch')||{value:''}).value.toLowerCase();
   let list=[...heroes].filter(h=>h.name.toLowerCase().includes(q));
   if(hFilter!=='ALL')list=list.filter(h=>h.lane===hFilter);
+  if(hClassFilter)list=list.filter(h=>h.role===hClassFilter);
+  if(hSubclassFilter)list=list.filter(h=>(h.subclass||'')===hSubclassFilter);
+  if(hJobFilter)list=list.filter(h=>(h.jobs||[]).includes(hJobFilter));
   list.sort((a,b)=>a.name.localeCompare(b.name));
   const grid=document.getElementById('heroGrid');
   if(!list.length){grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--text3);font-size:13px;">${heroes.length?'No matching heroes found.':'No heroes yet. Click + Add Hero.'}</div>`;return;}
@@ -1530,9 +1491,11 @@ function renderHeroDetail(){
       </div>
       <div>
         <div style="font-size:20px;font-weight:700;">${h.name}</div>
-        <div style="margin-top:4px;display:flex;gap:6px;align-items:center;">
+        <div style="margin-top:4px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
           <span class="lane-pill">${laneIconHTML(h.lane,16)}${laneLabel(h.lane)}</span>
           <span class="lane-pill">${h.role}</span>
+          ${h.subclass?`<span class="lane-pill">${homeEsc(h.subclass)}</span>`:''}
+          ${(h.jobs||[]).map(j=>`<span class="hero-tag">${homeEsc(j)}</span>`).join('')}
         </div>
       </div>
       <div style="margin-left:auto;display:flex;gap:6px;">
@@ -1585,7 +1548,12 @@ function switchHeroDetailTab(tab){
 function renderHeroDetailTabContent(){
   _renderHeroDetailTabCore();
   const el=document.getElementById('heroDetailTabContent');
-  if(el && hById(currentHeroDetailId)) el.insertAdjacentHTML('afterbegin', permLinksHTML((PERMANENT_LINKS.heroTab||{})[currentHeroDetailTab]));
+  const hh=hById(currentHeroDetailId);
+  if(el && hh){
+    let links=((PERMANENT_LINKS.heroTab||{})[currentHeroDetailTab]||[]).slice();
+    if(currentHeroDetailTab==='guide') links=links.concat((PERMANENT_LINKS.heroLane||{})[hh.lane]||[]);
+    el.insertAdjacentHTML('afterbegin', permLinksHTML(links));
+  }
 }
 function _renderHeroDetailTabCore(){
   const h=hById(currentHeroDetailId);
@@ -1820,8 +1788,14 @@ function renderItemTab(h){
           <button class="sm danger" onclick="deleteBuildPreset(${bp.id})">Delete</button>
         </div>
         <div class="build-item-row" id="build-items-${bp.id}">
-          ${bp.items.map((it,idx)=>buildItemSlotHTML(bp.id,it,idx)).join('')}
-          <div class="build-item-add" onclick="openBuildItemPicker(${bp.id})" title="Pilih item dari Equipment">+</div>
+          ${bp.items.map((icon,idx)=>`
+            <div class="build-item-slot">
+              ${icon?`<img src="${icon}"/><span class="build-item-x" onclick="removeBuildItem(${bp.id},${idx})">✕</span>`:''}
+            </div>`).join('')}
+          <label class="build-item-add">
+            +
+            <input type="file" accept="image/*" style="display:none;" onchange="addBuildItem(event,${bp.id})"/>
+          </label>
         </div>
         <textarea placeholder="Situational notes (when to use this build)..." style="min-height:60px;margin-top:8px;" oninput="updateBuildField(${bp.id},'note',this.value)">${bp.note||''}</textarea>
       </div>
@@ -1847,69 +1821,16 @@ function updateBuildField(buildId, field, value){
   const bp=h.buildPresets.find(b=>b.id===buildId);
   if(bp) bp[field]=value;
 }
-// Item di build preset disimpan sebagai id equipment (number). Data lama (gambar base64) tetap tampil.
-function buildItemSlotHTML(buildId, it, idx){
-  let inner='', title='';
-  if(typeof it==='number'){
-    const e=eqById(it);
-    if(e){
-      title=e.name.replace(/"/g,'&quot;');
-      inner=e.photo?`<img src="${e.photo}"/>`:`<span class="build-item-ph">${e.name.charAt(0).toUpperCase()}</span>`;
-    } else {
-      title='Item sudah dihapus dari Equipment';
-      inner=`<span class="build-item-ph">?</span>`;
-    }
-  } else if(it){
-    inner=`<img src="${it}"/>`;
-  }
-  return `<div class="build-item-slot" title="${title}">${inner}<span class="build-item-x" onclick="removeBuildItem(${buildId},${idx})">✕</span></div>`;
-}
-
-let buildPickTargetId=null;
-function openBuildItemPicker(buildId){
-  buildPickTargetId=buildId;
-  const cat=document.getElementById('buildPickCat');
-  cat.innerHTML='<option value="ALL">Semua kategori</option>'+EQ_CATEGORIES.map(c=>`<option value="${c}">${c}</option>`).join('');
-  document.getElementById('buildPickSearch').value='';
-  document.getElementById('buildPickOverlay').style.display='flex';
-  renderBuildItemPicker();
-}
-function closeBuildItemPicker(){
-  document.getElementById('buildPickOverlay').style.display='none';
-  buildPickTargetId=null;
-}
-function renderBuildItemPicker(){
-  const q=document.getElementById('buildPickSearch').value.toLowerCase().trim();
-  const cat=document.getElementById('buildPickCat').value;
-  const h=hById(currentHeroDetailId);
-  const bp=h?h.buildPresets.find(b=>b.id===buildPickTargetId):null;
-  document.getElementById('buildPickCount').textContent = bp ? ('Dipilih: '+bp.items.length+' item · tap item buat nambah') : '';
-  const grid=document.getElementById('buildPickGrid');
-  if(!equipment.length){
-    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--text3);font-size:12px;">Belum ada item di halaman Equipment.</div>';
-    return;
-  }
-  let list=equipment.filter(e=>e.name.toLowerCase().includes(q) && (cat==='ALL'||e.category===cat));
-  list.sort((a,b)=>a.name.localeCompare(b.name));
-  if(!list.length){
-    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--text3);font-size:12px;">Tidak ada item yang cocok.</div>';
-    return;
-  }
-  const card=e=>`<div class="eq-grid-card" onclick="pickBuildItem(${e.id})">
-    <div class="eq-grid-photo">${e.photo?`<img src="${e.photo}"/>`:e.name.charAt(0).toUpperCase()}</div>
-    ${e.price?`<div class="eq-grid-price">${e.price}g</div>`:''}
-    <div class="eq-grid-name">${e.name}</div>
-  </div>`;
-  const basic=list.filter(e=>e.status==='BASIC'), adv=list.filter(e=>e.status!=='BASIC');
-  grid.innerHTML=(basic.length?'<div class="bpick-sec">Basic</div>'+basic.map(card).join(''):'')
-                +(adv.length?'<div class="bpick-sec">Advanced</div>'+adv.map(card).join(''):'');
-}
-function pickBuildItem(eqId){
+function addBuildItem(e, buildId){
+  const file=e.target.files[0];if(!file)return;
   const h=hById(currentHeroDetailId);if(!h)return;
-  const bp=h.buildPresets.find(b=>b.id===buildPickTargetId);if(!bp)return;
-  bp.items.push(eqId);
-  renderHeroDetailTabContent();
-  renderBuildItemPicker();
+  const bp=h.buildPresets.find(b=>b.id===buildId);if(!bp)return;
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    bp.items.push(ev.target.result);
+    renderHeroDetailTabContent();
+  };
+  reader.readAsDataURL(file);
 }
 function removeBuildItem(buildId, idx){
   const h=hById(currentHeroDetailId);if(!h)return;
@@ -1970,8 +1891,52 @@ function updateStoryChapterField(chapterId, field, value){
 // ============================================================
 // HERO ADD/EDIT MODAL
 // ============================================================
+// ---- class / subclass / job desc ----
+const HERO_CLASSES = ['Tank','Fighter','Assassin','Mage','Marksman','Support'];
+// Isi daftar subclass kamu di sini, misal ['Artillery', ...]. Subclass yang sudah dipakai hero otomatis ikut muncul.
+const HERO_SUBCLASS_PRESETS = [];
+// Saran job desc. Kamu juga bisa mengetik job baru langsung di form hero.
+const HERO_JOB_PRESETS = ['Initiator','Damage carry','Crowd Control','Vision','Frontline','Flanker','Split Pusher','Wave Clear','Frontline','Pick-off','Healer / Shielder','Objective Control'];
+let hFormJobs=[];
+let hClassFilter='', hSubclassFilter='', hJobFilter='';
+function uniqSorted(arr){return [...new Set(arr.filter(Boolean))].sort((a,b)=>a.localeCompare(b));}
+function heroSubclassOptions(){return uniqSorted([...HERO_SUBCLASS_PRESETS,...heroes.map(h=>h.subclass)]);}
+function heroJobOptions(){return uniqSorted([...HERO_JOB_PRESETS,...heroes.reduce((a,h)=>a.concat(h.jobs||[]),[])]);}
+function renderHeroJobChips(){
+  const el=document.getElementById('hJobChips'); if(!el)return;
+  el.innerHTML=hFormJobs.length?hFormJobs.map((j,i)=>`<span class="chip blue">${homeEsc(j)}<span onclick="removeHeroJob(${i})" style="cursor:pointer;margin-left:4px;">×</span></span>`).join(''):'<span style="font-size:11px;color:var(--text3);">Belum ada.</span>';
+}
+function addHeroJob(){
+  const inp=document.getElementById('hJobInput'); const v=inp.value.trim();
+  if(v&&!hFormJobs.some(j=>j.toLowerCase()===v.toLowerCase())) hFormJobs.push(v);
+  inp.value=''; renderHeroJobChips();
+}
+function removeHeroJob(i){hFormJobs.splice(i,1);renderHeroJobChips();}
+function fillHeroTagDatalists(){
+  document.getElementById('hSubclassList').innerHTML=heroSubclassOptions().map(x=>`<option value="${homeEsc(x)}"></option>`).join('');
+  document.getElementById('hJobList').innerHTML=heroJobOptions().map(x=>`<option value="${homeEsc(x)}"></option>`).join('');
+}
+function renderHeroTagFilterBar(){
+  const c=document.getElementById('hClassFilter'), sc=document.getElementById('hSubclassFilter'), j=document.getElementById('hJobFilter');
+  if(!c||!sc||!j)return;
+  const classes=uniqSorted([...HERO_CLASSES,...heroes.map(h=>h.role)]);
+  c.innerHTML='<option value="">Semua Class</option>'+classes.map(x=>`<option value="${homeEsc(x)}">${homeEsc(x)}</option>`).join('');
+  sc.innerHTML='<option value="">Semua Subclass</option>'+heroSubclassOptions().map(x=>`<option value="${homeEsc(x)}">${homeEsc(x)}</option>`).join('');
+  j.innerHTML='<option value="">Semua Job Desc</option>'+heroJobOptions().map(x=>`<option value="${homeEsc(x)}">${homeEsc(x)}</option>`).join('');
+  c.value=hClassFilter; sc.value=hSubclassFilter; j.value=hJobFilter;
+}
+function setHeroTagFilter(kind,v){
+  if(kind==='class')hClassFilter=v; else if(kind==='subclass')hSubclassFilter=v; else hJobFilter=v;
+  renderHeroGrid();
+}
+function resetHeroTagFilters(){hClassFilter='';hSubclassFilter='';hJobFilter='';renderHeroGrid();}
+
 function openHeroAddModal(){
   editHero=null;hFormPhoto=null;
+  hFormJobs=[];
+  document.getElementById('hSubclass').value='';
+  document.getElementById('hJobInput').value='';
+  fillHeroTagDatalists(); renderHeroJobChips();
   document.getElementById('heroModalTitle').textContent='Add Hero';
   document.getElementById('hName').value='';
   document.getElementById('hLane').value='CLASH';
@@ -1985,6 +1950,10 @@ function openHeroAddModal(){
 function openHeroEditModal(id){
   const h=hById(id);if(!h)return;
   editHero=id;hFormPhoto=h.photo;
+  hFormJobs=(h.jobs||[]).slice();
+  document.getElementById('hSubclass').value=h.subclass||'';
+  document.getElementById('hJobInput').value='';
+  fillHeroTagDatalists(); renderHeroJobChips();
   document.getElementById('heroModalTitle').textContent='Edit Hero';
   document.getElementById('hName').value=h.name;
   document.getElementById('hLane').value=h.lane;
@@ -2020,15 +1989,21 @@ function saveHero(){
   if(!name)return alert('Hero name is required.');
   const lane=document.getElementById('hLane').value;
   const role=document.getElementById('hRole').value;
+  const subclass=document.getElementById('hSubclass').value.trim();
+  const pendingJob=document.getElementById('hJobInput').value.trim();
+  if(pendingJob && !hFormJobs.some(j=>j.toLowerCase()===pendingJob.toLowerCase())) hFormJobs.push(pendingJob);
+  const jobs=hFormJobs.slice();
 
   if(editHero){
     const h=hById(editHero);
-    if(h){ h.name=name; h.lane=lane; h.role=role; if(hFormPhoto) h.photo=hFormPhoto; }
+    if(h){ h.name=name; h.lane=lane; h.role=role; h.subclass=subclass; h.jobs=jobs; if(hFormPhoto) h.photo=hFormPhoto; }
   } else {
     if(heroes.find(h=>h.name.toLowerCase()===name.toLowerCase())){
       alert('A hero with that name already exists.');return;
     }
-    heroes.push(newHeroObj(nextHeroId++, name, lane, role, hFormPhoto));
+    const nh=newHeroObj(nextHeroId++, name, lane, role, hFormPhoto);
+    nh.subclass=subclass; nh.jobs=jobs;
+    heroes.push(nh);
   }
   closeHeroModal();
   renderHeroGrid();
@@ -3042,17 +3017,16 @@ function renderDraftGBPLockedPanel(){
     el.innerHTML='';
     return;
   }
-  const lb=gbpListOfSide('blue'), lr=gbpListOfSide('red');
   el.innerHTML=`<div class="card amber">
     <div class="clabel">Hero Terkunci GBP</div>
     <div class="two-col" style="gap:10px;">
       <div>
-        <div style="font-size:10px;font-weight:700;color:var(--blue);margin-bottom:4px;">TIM BIRU · Team ${gbpTeamOfSide('blue')} (${lb.length})</div>
-        ${lb.length?`<div class="chips">${lb.map(n=>`<span class="chip blue">${avatarHTML(n,'sm')}${n}</span>`).join('')}</div>`:'<span style="font-size:11px;color:var(--text3);">–</span>'}
+        <div style="font-size:10px;font-weight:700;color:var(--blue);margin-bottom:4px;">TIM BIRU (${gbpUsedBlue.length})</div>
+        ${gbpUsedBlue.length?`<div class="chips">${gbpUsedBlue.map(n=>`<span class="chip blue">${avatarHTML(n,'sm')}${n}</span>`).join('')}</div>`:'<span style="font-size:11px;color:var(--text3);">–</span>'}
       </div>
       <div>
-        <div style="font-size:10px;font-weight:700;color:var(--red);margin-bottom:4px;">TIM MERAH · Team ${gbpTeamOfSide('red')} (${lr.length})</div>
-        ${lr.length?`<div class="chips">${lr.map(n=>`<span class="chip red">${avatarHTML(n,'sm')}${n}</span>`).join('')}</div>`:'<span style="font-size:11px;color:var(--text3);">–</span>'}
+        <div style="font-size:10px;font-weight:700;color:var(--red);margin-bottom:4px;">TIM MERAH (${gbpUsedRed.length})</div>
+        ${gbpUsedRed.length?`<div class="chips">${gbpUsedRed.map(n=>`<span class="chip red">${avatarHTML(n,'sm')}${n}</span>`).join('')}</div>`:'<span style="font-size:11px;color:var(--text3);">–</span>'}
       </div>
     </div>
   </div>`;
@@ -3068,8 +3042,6 @@ function pickFromPool(name){
   pushUndo(st.key, prevValue, step);
   draft[st.key]=name;
   step=Math.min(step+1,SLOT_DEFS.length);
-  const heroSearchEl=document.getElementById('draftHeroSearch');
-  if(heroSearchEl) heroSearchEl.value='';
   renderDraft();
   renderSlotStatPanel();
 }
@@ -3257,7 +3229,7 @@ function renderSlotStatPanel(){
   // NEW COMPOSITION — always shown regardless of manual mode, since this is about entirely unknown data
   if(statResult.isUnknownComposition){
     html += `<div class="warn" style="border-color:var(--amber-b);background:var(--amber-bg);">
-      🆕 <span style="color:#fcd34d;"><strong>New composition</strong></span>${infoTip(statResult.unknownHeroes.join(', ')+' has never been recorded in any draft history.')}
+      🆕 <span style="color:#fcd34d;"><strong>New composition</strong> — <strong>${statResult.unknownHeroes.join(', ')}</strong> has never been recorded in any draft history.</span>
     </div>`;
     html += renderModeKreatifBlock(st, excludeForStat);
     panel.innerHTML=html;
@@ -3275,7 +3247,7 @@ function renderSlotStatPanel(){
     } else {
       const modeLabel = statResult.mode==='statistik' ? 'Statistics' : 'Flexible';
       html += `<div class="warn" style="border-color:var(--border2);background:var(--bg2);">
-        <span style="color:var(--text2);">No data in <strong>${modeLabel}</strong> mode.</span>${infoTip('Try another mode, or pick a hero manually on the draft board.')}
+        <span style="color:var(--text2);">The <strong>${modeLabel}</strong> mode has no data for this slot. Try another mode, or pick a hero manually on the draft board.</span>
       </div>`;
     }
     panel.innerHTML=html;
@@ -3285,7 +3257,7 @@ function renderSlotStatPanel(){
   // AUTO MODE falls back to Creative — no relevant statistics at all
   if(!statResult.isManual && statResult.mode==='kreatif'){
     html += `<div class="warn" style="border-color:var(--purple-b);background:var(--purple-bg);">
-      🆕 <span style="color:var(--purple);"><strong>New draft</strong></span>${infoTip('No match history exists yet with the current draft combination.')}
+      🆕 <span style="color:var(--purple);"><strong>New draft found</strong> — no match history exists yet with the current draft combination.</span>
     </div>`;
     html += renderModeKreatifBlock(st, excludeForStat);
     panel.innerHTML=html;
@@ -3301,16 +3273,15 @@ function renderSlotStatPanel(){
 
   const modeLabel = statResult.mode==='statistik' ? 'Statistics' : 'Flexible';
   const modeBadgeColor = statResult.mode==='statistik' ? 'var(--green)' : 'var(--amber)';
-  const modeTip = statResult.mode==='fleksibel'
-    ? "Flexible mode: the current composition doesn't exactly match any history, so it searches by the key heroes already picked/banned (regardless of exact slot order)."
-    : `Narrowed down from ${statResult.matchCount} matches whose slots match exactly so far.`;
-  const tipFull = modeTip+' Tap a hero to pick it, or tap a slot on the board to search manually.';
+  const modeNote = statResult.mode==='fleksibel'
+    ? `<div style="font-size:11px;color:#fcd34d;margin-bottom:8px;">⚡ Flexible Mode — the current composition doesn't exactly match any history, so it searches based on key heroes already picked/banned (regardless of exact slot order)</div>`
+    : `<div style="font-size:11px;color:var(--text3);margin-bottom:8px;">Narrowed down from ${statResult.matchCount} matches whose slots match exactly so far</div>`;
 
-  html += `<div class="suggest-panel">
+  html += `${modeNote}<div class="suggest-panel">
     <div class="suggest-hd">
-      <span class="suggest-title">${st.label} · ${teamLabel}</span>
+      <span class="suggest-title">${modeLabel} ${st.phase} — ${teamLabel} (${st.label})</span>
       <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:${modeBadgeColor};color:#0c0c12;">${modeLabel.toUpperCase()}</span>
-      <span style="font-size:11px;color:var(--text3)">${statResult.matchCount} matches${infoTip(tipFull)}</span>
+      <span style="font-size:11px;color:var(--text3)">from ${statResult.matchCount} matches</span>
     </div>
     ${displayed.map((s,i)=>`<div class="suggest-item" onclick="selectHeroForSuggestion('${safe(s.name)}')">
       <span class="suggest-rank">#${i+1}</span>
@@ -3320,7 +3291,10 @@ function renderSlotStatPanel(){
         <div class="suggest-bar-bg"><div class="suggest-bar-fill" style="width:${s.pct}%;background:${colorByTeam};"></div></div>
       </div>
     </div>`).join('')}
-    ${stats.length>3?`<div class="show-more-btn" onclick="toggleShowAll('${st.key}')">${showAll?'Show less':'Show more'}</div>`:''}
+    ${stats.length>3?`<div class="show-more-btn" onclick="toggleShowAll('${st.key}')">${showAll?'Tampilkan lebih sedikit':'Lihat selengkapnya (sampai 6)'}</div>`:''}
+  </div>
+  <div style="text-align:center;margin-top:8px;">
+    <span style="font-size:11px;color:var(--text3);">Click a hero name above to pick it directly, or click a slot on the draft board to search manually</span>
   </div>`;
 
   panel.innerHTML=html;
@@ -3351,12 +3325,12 @@ function renderModeKreatifBlock(st, excludeForStat){
   const kreatifResult = computeModeKreatif(st.key, excludeForStat);
   const rows = kreatifResult.rows;
   const actionLabel = st.type==='ban' ? 'Ban suggestion (most-used enemy hero, enemy team\'s empty lane)' : 'Pick suggestion (most-used hero, our team\'s empty lane)';
-  let html = `<div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--purple);color:#fff;display:inline-block;margin-bottom:8px;">KREATIF</div>${infoTip('No percentages: ranked by how often each hero was used.')}`;
+  let html = `<div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--purple);color:#fff;display:inline-block;margin-bottom:8px;">KREATIF — TANPA PERSENTASE</div>`;
   if(rows.length===0){
-    html += `<div style="font-size:12px;color:var(--text3);margin-top:4px;">No suggestions for this slot.</div>`;
+    html += `<div style="font-size:12px;color:var(--text3);margin-top:4px;">No creative suggestions for this slot yet. Pick a hero manually on the draft board.</div>`;
     return html;
   }
-  html += `<div class="stitle" style="margin-top:0;">${actionLabel.split(' (')[0]}${infoTip(actionLabel)}</div>`;
+  html += `<div class="stitle" style="margin-top:0;">${actionLabel}</div>`;
   rows.slice(0,6).forEach(g=>{
     html += `<div class="role-gap-card" onclick="selectHeroForSuggestion('${safe(g.name)}')" style="cursor:pointer;">
       ${avatarHTML(g.name,'sm')}
@@ -3492,13 +3466,14 @@ function renderSearchResult(){
 function renderGBPTab(){
   const card=document.getElementById('gbpControlCard');
   card.innerHTML=`
-    <div class="clabel">Mode GBP (Ghost Ban/Pick)${infoTip('When active, a hero already used (picked) by a team in a previous game cannot be used again by the same team in the next game, until the mode is reset or turned off. The opposing team may still use that hero.')}</div>
+    <div class="clabel">Mode GBP (Ghost Ban/Pick)</div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.6;">
+      When active, a hero already used (picked) by a team in a previous game cannot be used again by the same team in the next game — until the mode is reset or turned off. The opposing team may still use that hero.
+    </div>
     <div style="display:flex;gap:8px;align-items:center;">
       <button class="${gbpActive?'danger':'success'}" onclick="toggleGBP()">${gbpActive?'Turn Off GBP':'Turn On GBP'}</button>
       <button class="amber" onclick="confirmResetGBP()">Reset Hero Locks</button>
-      <button onclick="swapGBPSides()">🔄 Swap Sides</button>
     </div>
-    <div style="font-size:11px;color:var(--text3);margin-top:10px;">A = ${gbpSideOfTeam('A')==='blue'?'Blue':'Red'} · B = ${gbpSideOfTeam('B')==='blue'?'Blue':'Red'}${infoTip('Locks follow the team, not the side. Press Swap Sides when the teams switch sides in the next game.')}</div>
   `;
   renderGBPPoolView();
 }
@@ -3515,7 +3490,7 @@ function toggleGBP(){
 }
 
 function confirmResetGBP(){
-  document.getElementById('confirmText').innerHTML=`Reset GBP hero locks? <strong>Team A (${gbpUsedBlue.length} heroes)</strong> and <strong>Team B (${gbpUsedRed.length} heroes)</strong> will be able to use all heroes again.`;
+  document.getElementById('confirmText').innerHTML=`Reset GBP hero locks? <strong>Blue Team (${gbpUsedBlue.length} heroes)</strong> and <strong>Red Team (${gbpUsedRed.length} heroes)</strong> will be able to use all heroes again.`;
   document.getElementById('confirmBtn').onclick=function(){
     gbpUsedBlue=[];gbpUsedRed=[];
     closeConfirm();
@@ -3538,7 +3513,7 @@ function confirmLockGBP(){
     document.getElementById('confirmOverlay').style.display='flex';
     return;
   }
-  document.getElementById('confirmText').innerHTML=`Save this draft result to GBP? <strong>${bluePicks.length} Blue side heroes (Team ${gbpTeamOfSide('blue')})</strong> and <strong>${redPicks.length} Red side heroes (Team ${gbpTeamOfSide('red')})</strong> will be locked (cannot be used by the same team) until reset. This does not affect the Statistics data.`;
+  document.getElementById('confirmText').innerHTML=`Save this draft result to GBP? <strong>${bluePicks.length} Blue Team heroes</strong> and <strong>${redPicks.length} Red Team heroes</strong> will be locked (cannot be used by the same team) until reset. This does not affect the Statistics data.`;
   document.getElementById('confirmBtn').style.display='inline-block';
   document.getElementById('confirmBtn').onclick=function(){
     lockCurrentDraftPicks();
@@ -3550,16 +3525,15 @@ function confirmLockGBP(){
 function lockCurrentDraftPicks(){
   const bluePicks=PICK_SLOTS.blue.map(k=>draft[k]).filter(Boolean);
   const redPicks=PICK_SLOTS.red.map(k=>draft[k]).filter(Boolean);
-  const lockBlue=gbpListOfSide('blue'), lockRed=gbpListOfSide('red');
-  bluePicks.forEach(h=>{if(!lockBlue.includes(h))lockBlue.push(h);});
-  redPicks.forEach(h=>{if(!lockRed.includes(h))lockRed.push(h);});
+  bluePicks.forEach(h=>{if(!gbpUsedBlue.includes(h))gbpUsedBlue.push(h);});
+  redPicks.forEach(h=>{if(!gbpUsedRed.includes(h))gbpUsedRed.push(h);});
   gbpActive=true;
   renderGBPBar();
   renderDraft();
 }
 
 function removeFromGBP(team,name){
-  if(team==='A')gbpUsedBlue=gbpUsedBlue.filter(h=>h!==name);
+  if(team==='blue')gbpUsedBlue=gbpUsedBlue.filter(h=>h!==name);
   else gbpUsedRed=gbpUsedRed.filter(h=>h!==name);
   renderGBPPoolView();
   renderGBPBar();
@@ -3569,14 +3543,17 @@ function renderGBPPoolView(){
   const el=document.getElementById('gbpPoolView');
   el.innerHTML=`
     <div class="two-col">
-      <div class="card ${gbpSideOfTeam('A')==='blue'?'blue':'red'}">
-        <div class="clabel">Team A — Locked (${gbpUsedBlue.length}) · now ${gbpSideOfTeam('A')==='blue'?'Blue':'Red'}</div>
-        ${gbpUsedBlue.length?`<div class="chips">${gbpUsedBlue.map(n=>`<span class="chip blue">${avatarHTML(n,'sm')}${n}<span onclick="removeFromGBP('A','${safe(n)}')" style="cursor:pointer;color:var(--text3);margin-left:4px;">×</span></span>`).join('')}</div>`:'<span style="font-size:12px;color:var(--text3);">Belum ada hero terkunci.</span>'}
+      <div class="card blue">
+        <div class="clabel">Blue Team — Locked (${gbpUsedBlue.length})</div>
+        ${gbpUsedBlue.length?`<div class="chips">${gbpUsedBlue.map(n=>`<span class="chip blue">${avatarHTML(n,'sm')}${n}<span onclick="removeFromGBP('blue','${safe(n)}')" style="cursor:pointer;color:var(--text3);margin-left:4px;">×</span></span>`).join('')}</div>`:'<span style="font-size:12px;color:var(--text3);">Belum ada hero terkunci.</span>'}
       </div>
-      <div class="card ${gbpSideOfTeam('B')==='blue'?'blue':'red'}">
-        <div class="clabel">Team B — Locked (${gbpUsedRed.length}) · now ${gbpSideOfTeam('B')==='blue'?'Blue':'Red'}</div>
-        ${gbpUsedRed.length?`<div class="chips">${gbpUsedRed.map(n=>`<span class="chip red">${avatarHTML(n,'sm')}${n}<span onclick="removeFromGBP('B','${safe(n)}')" style="cursor:pointer;color:var(--text3);margin-left:4px;">×</span></span>`).join('')}</div>`:'<span style="font-size:12px;color:var(--text3);">Belum ada hero terkunci.</span>'}
+      <div class="card red">
+        <div class="clabel">Red Team — Locked (${gbpUsedRed.length})</div>
+        ${gbpUsedRed.length?`<div class="chips">${gbpUsedRed.map(n=>`<span class="chip red">${avatarHTML(n,'sm')}${n}<span onclick="removeFromGBP('red','${safe(n)}')" style="cursor:pointer;color:var(--text3);margin-left:4px;">×</span></span>`).join('')}</div>`:'<span style="font-size:12px;color:var(--text3);">Belum ada hero terkunci.</span>'}
       </div>
+    </div>
+    <div style="margin-top:12px;text-align:center;">
+      <div style="font-size:11px;color:var(--text3);">Use the "🔒 Lock picks to GBP" button on the Draft Simulator tab after a game ends.</div>
     </div>
   `;
 }
@@ -3589,10 +3566,11 @@ function exportData(){
     version:5,
     heroes, nextHeroId,
     history, nextHistId,
-    gbpActive, gbpUsedBlue, gbpUsedRed, gbpSwapped,
+    gbpActive, gbpUsedBlue, gbpUsedRed,
     laneIcons,
     nextSkillId, nextBuildId, nextChapterId,
     equipment, nextEqId,
+    mechanics: mechanicsData,
   };
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
@@ -3614,6 +3592,8 @@ function migrateHero(h){
     role: h.role,
     photo: h.photo || null,
     tier: h.tier || null,
+    subclass: h.subclass || '',
+    jobs: Array.isArray(h.jobs) ? h.jobs.filter(Boolean).map(String) : [],
     guide: h.guide || '',
     faq: Array.isArray(h.faq) ? h.faq.filter(f=>f && typeof f==='object').map(f=>({q:f.q||'', a:f.a||''})) : [],
     skills: Array.isArray(h.skills) ? h.skills : [],
@@ -3636,13 +3616,13 @@ function applyImportedData(data){
   gbpActive=data.gbpActive||false;
   gbpUsedBlue=data.gbpUsedBlue||[];
   gbpUsedRed=data.gbpUsedRed||[];
-  gbpSwapped=!!data.gbpSwapped;
   laneIcons=data.laneIcons||{CLASH:null,JUNGLE:null,MID:null,ROAM:null,FARM:null};
   nextSkillId=data.nextSkillId||1;
   nextBuildId=data.nextBuildId||1;
   nextChapterId=data.nextChapterId||1;
   equipment=(data.equipment||[]).map(migrateEquipment);
   nextEqId=data.nextEqId||(equipment.length?Math.max(...equipment.map(e=>e.id))+1:1);
+  mechanicsData=Array.isArray(data.mechanics)?data.mechanics.map(normalizeMechanic).filter(Boolean):null;
 }
 
 function importData(e){
@@ -3783,7 +3763,8 @@ function renderHome(){
     {p:'heroes',ico:'☰',t:'Heroes',d:'Photos, lanes, builds, guides and match ups.',m:heroes.length+' heroes'},
     {p:'meta',ico:'◆',t:'Tier List',d:'Rank heroes into S/A/B/C/D tiers.',m:ranked+' ranked'},
     {p:'statistik',ico:'▦',t:'Statistics',d:'Draft history, hero search and GBP controls.',m:st.total+' matches'},
-    {p:'equipment',ico:'⛨',t:'Equipment',d:'Items and recipe trees.',m:(equipment?equipment.length:0)+' items'}
+    {p:'equipment',ico:'⛨',t:'Equipment',d:'Items and recipe trees.',m:(equipment?equipment.length:0)+' items'},
+    {p:'mechanics',ico:'✦',t:'Mechanics',d:'Gold, assist, Primal Bond, dan fase game.',m:getMechanics().length+' topik'}
   ];
   const cardsHtml='<div class="home-grid">'+cards.map(function(c){
     return '<div class="home-card'+(c.main?' main':'')+'" onclick="go(\''+c.p+'\')">'
@@ -3865,7 +3846,6 @@ window.addEventListener('beforeunload', function(e){
 // ============================================================
 // INIT
 // ============================================================
-lastMobileMode=isMobileWidth();
 initSidebarForScreenSize();
 renderHome();
 renderPermanentLinks('home');
